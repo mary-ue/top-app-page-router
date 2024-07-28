@@ -1,11 +1,17 @@
-import type { AppProps } from 'next/app';
+import { AppProps } from 'next/app';
+import '../styles/globals.css';
+import Head from 'next/head';
 
-export default function App({ Component, pageProps }: AppProps): JSX.Element {
-  const a = 1;
+function MyApp({ Component, pageProps }: AppProps): JSX.Element {
   return (
     <>
+      <Head>
+        <title>Create Next TITLE</title>
+        <link key={1} rel="icon" href="/favicon2.ico" />
+      </Head>
       <Component {...pageProps} />
-      {a}
     </>
   );
 }
+
+export default MyApp;
