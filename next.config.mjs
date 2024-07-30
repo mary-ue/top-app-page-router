@@ -1,6 +1,12 @@
-/** @type {import('next').NextConfig} */
-const nextConfig = {
+export default {
   reactStrictMode: true,
-};
+  webpack(config) {
+    // Добавляем правило для обработки SVG файлов
+    config.module.rules.push({
+      test: /\.svg$/,
+      use: ['@svgr/webpack'],
+    });
 
-export default nextConfig;
+    return config;
+  },
+};
