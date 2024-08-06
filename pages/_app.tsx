@@ -7,7 +7,7 @@ function MyApp({ Component, pageProps }: AppProps): JSX.Element {
     <>
       <Head>
         <title>MyTop - наш лучший топ</title>
-        <link key={1} rel="icon" href="/favicon2.ico" />
+        <link key={1} rel="icon" href="/favicon.ico" />
       </Head>
       <Component {...pageProps} />
     </>
