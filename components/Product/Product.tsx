@@ -6,6 +6,7 @@ import { Tag } from '../Tag/Tag';
 import { Button } from '../Button/Button';
 import { priceRu, declOfNum } from '../../helpers/helpers';
 import { Divider } from '../Divider/Divider';
+import Image from 'next/image';
 
 export const Product = ({
   product,
@@ -15,7 +16,13 @@ export const Product = ({
   return (
     <Card className={styles.product}>
       <div className={styles.logo}>
-        <img src={product.image} alt={product.title} />
+        <Image 
+          src={product.image}
+          alt={product.title}
+          width={70}
+          height={70}
+          quality={85}
+        />
       </div>
       <div className={styles.title}>{product.title}</div>
       <div className={styles.price}>
