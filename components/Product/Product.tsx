@@ -1,3 +1,4 @@
+import cn from 'classnames';
 import { ProductProps } from './Product.props';
 import styles from './Product.module.css';
 import { Card } from '../Card/Card';
@@ -77,7 +78,7 @@ export const Product = ({
           </div>
         )}
       </div>
-      <Divider className={styles.hr} />
+      <Divider className={cn(styles.hr, styles.hr2)} />
       <div className={styles.actions}>
         <Button appearance="primary">Узнать подробнее</Button>
         <Button
