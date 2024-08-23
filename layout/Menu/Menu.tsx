@@ -83,7 +83,7 @@ export const Menu = (): JSX.Element => {
           [styles.thirdLevelActive]: `/${route}/${p.alias}` == router.asPath,
         })}
         href={`/${route}/${p.alias}`}
-        key={p.category}
+        key={p._id}
       >
         {p.category}
       </Link>
