@@ -32,7 +32,7 @@ export const Menu = (): JSX.Element => {
     },
     hidden: {
       opacity: 0,
-      height: 0
+      height: 0,
     },
   };
 
@@ -49,11 +49,11 @@ export const Menu = (): JSX.Element => {
   };
 
   const openSecondLevelKey = (key: KeyboardEvent, secondCategory: string) => {
-		if (key.code == 'Space' || key.code == 'Enter') {
-			key.preventDefault();
-			openSecondLevel(secondCategory);
-		}
-	};
+    if (key.code == 'Space' || key.code == 'Enter') {
+      key.preventDefault();
+      openSecondLevel(secondCategory);
+    }
+  };
 
   const buildFirstLevel = () => {
     return (
@@ -92,7 +92,9 @@ export const Menu = (): JSX.Element => {
                 className={styles.secondLevel}
                 onClick={() => openSecondLevel(m._id.secondCategory)}
                 tabIndex={0}
-                onKeyDown={(key: KeyboardEvent) => openSecondLevelKey(key, m._id.secondCategory)}
+                onKeyDown={(key: KeyboardEvent) =>
+                  openSecondLevelKey(key, m._id.secondCategory)
+                }
               >
                 {m._id.secondCategory}
               </div>
@@ -112,7 +114,11 @@ export const Menu = (): JSX.Element => {
     );
   };
 
-  const buildThirdLevel = (pages: PageItem[], route: string, isOpened: boolean) => {
+  const buildThirdLevel = (
+    pages: PageItem[],
+    route: string,
+    isOpened: boolean
+  ) => {
     return pages.map((p) => (
       <motion.div key={p._id} variants={variantsChildren}>
         <Link
@@ -128,5 +134,9 @@ export const Menu = (): JSX.Element => {
     ));
   };
 
-  return <div className={styles.menu}>{buildFirstLevel()}</div>;
+  return (
+    <nav className={styles.menu} role="navigation">
+      {buildFirstLevel()}
+    </nav>
+  );
 };
