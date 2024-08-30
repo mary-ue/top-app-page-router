@@ -12,14 +12,21 @@ import { ProductModel } from '../../interfaces/product.interface';
 import { firstLevelMenu } from '../../helpers/helpers';
 import { TopPageComponet } from '../../page-components';
 import { API } from '../../helpers/api';
+import Head from 'next/head';
 
 function TopPage({ firstCategory, page, products }: TopPageProps): JSX.Element {
   return (
-    <TopPageComponet
+    <>
+    <Head>
+      <title>{page?.metaTitle}</title>
+      <meta name="description" content={page?.metaDescription} />
+    </Head>
+      <TopPageComponet
       firstCategory={firstCategory}
       page={page}
       products={products}
     />
+    </>
   );
 }
 

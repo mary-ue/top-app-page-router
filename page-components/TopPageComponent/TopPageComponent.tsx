@@ -31,7 +31,7 @@ export const TopPageComponet = ({
       <div className={styles.title}>
         <Htag tag="h1">{page.title}</Htag>
         {products && (
-          <Tag color="grey" size="m"  aria-label={products.length + 'элементов'}>
+          <Tag color="grey" size="m" aria-label={products.length + 'элементов'}>
             {products.length}
           </Tag>
         )}
@@ -39,7 +39,14 @@ export const TopPageComponet = ({
       </div>
       <div role="list">
         {sortedProducts &&
-          sortedProducts.map((p) => <Product role="listitem" layout={shouldReduceMotion ? false : true} key={p._id} product={p} />)}
+          sortedProducts.map((p) => (
+            <Product
+              role="listitem"
+              layout={shouldReduceMotion ? false : true}
+              key={p._id}
+              product={p}
+            />
+          ))}
       </div>
       <div className={styles.hhTitle}>
         <Htag tag="h2">Вакансии - {page.category}</Htag>
